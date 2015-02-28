@@ -55,12 +55,12 @@ to_email="$6"
 subject="References / zones available"
 
 msg='{ "async": false, "key": "'$key'", "message": { "from_email": "'$from_email'", "from_name": "'$from_name'", "headers": { "Reply-To": "'$reply_to'" }, "return_path_domain": null, "subject": "References / zones available", "text": "'$RESULTS'", "to": [ { "email": "'$to_email'", "type": "to" } ] } }'
-echo "CURL JSON: $msg"
-results=$(curl -A 'Mandrill-Curl/1.0' -d "$msg" 'https://mandrillapp.com/api/1.0/messages/send.json' -s 2>&1);
-echo "$results" | grep "sent" -q; 
+sendmail_result=$(curl -A 'Mandrill-Curl/1.0' -d "$msg" 'https://mandrillapp.com/api/1.0/messages/send.json' -s 2>&1);
+echo "$sendmail_result" | grep "sent" -q; 
 if [ $? -ne 0 ]; then
-    echo "An error occured: $results";
+    echo "An error occured trying to send email: $sendmail_result";
     exit 2;
-fi 
+fi
+echo "Email sent to '$to_email' !"
 
 exit 0
