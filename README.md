@@ -4,7 +4,6 @@ Shell script to check availability of kimsufi server.
 
 You can also check availability of any OVH reference in any zone provided you have the reference ... (So you Start, Kimsufi, OVH, ...)
 
-
 ## Author
 
 Alexis Kinsella ( @alexiskinsella )
@@ -54,6 +53,8 @@ Edit your crontab:
 
 	crontab -e
 
+Create log file with expected log file mode.
+
 Crontab entry:
 
-	*/15 * * * * /home/<user>/kimsufi-availability.sh 150sk60 rbx 0000000000000000000000 john.doe@gmail.com "John Doe" john.doe@gmail.com >> /var/log/kimsufi-availability.log 2>&1
+	*/15 * * * * /home/<user>/kimsufi-availability-checker-shell/kimsufi-availability.sh 150sk60 rbx 0000000000000000000000 john.doe@gmail.com "John Doe" john.doe@gmail.com >> /var/log/kimsufi-availability.log 2>&1
