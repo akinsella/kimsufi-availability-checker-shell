@@ -2,6 +2,9 @@
 
 Shell script to check availability of kimsufi server.
 
+You can also check availability of any OVH reference in any zone provided you have the reference ... (So you Start, Kimsufi, OVH, ...)
+
+
 ## Author
 
 Alexis Kinsella ( @alexiskinsella )
