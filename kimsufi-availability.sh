@@ -18,11 +18,7 @@
 #FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
 #ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-
-if [[ "3" != "3" ]] &&  [[ "3" != "3" ]]; then echo "yes"; else echo "no"; fi
-
 DATA=$(curl https://ws.ovh.com/dedicated/r2/ws.dispatcher/getAvailability2)
-
 
 echo "Searching for OVH references and zone availabilities ..."
 REFERENCES=$(echo $DATA | jq '.answer.availability[].reference' | grep "$1")
